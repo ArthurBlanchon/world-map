@@ -1,4 +1,4 @@
-import { StrictMode } from "react"
+import { StrictMode, Suspense, lazy } from "react"
 import { createRoot } from "react-dom/client"
 import { GristBoundary, GristWidgetProvider } from "grist-widget-sdk"
 
@@ -8,8 +8,11 @@ import { GristStatusChip } from "@/components/grist-status-chip"
 import { TemplateLanding } from "@/components/template-landing"
 import { ThemeProvider } from "@/components/theme-provider.tsx"
 import { parseShowcasePath } from "@/lib/showcase-routing"
+import { GRIST_OPTIONS } from "./grist-options.ts"
 import "./index.css"
-import App, { GRIST_OPTIONS } from "./App.tsx"
+
+/** MapLibre + choropleth UI -- loaded after the Grist shell is ready. */
+const App = lazy(() => import("./App.tsx"))
 
 // A Grist custom widget only ever runs embedded in Grist's own iframe.
 // Opened directly in a browser tab (window.self === window.top), there's no
@@ -42,7 +45,9 @@ createRoot(document.getElementById("root")!).render(
           >
             <div className="min-h-full w-full bg-background text-foreground">
               <GristSdkAlerts>
-                <App />
+                <Suspense fallback={null}>
+                  <App />
+                </Suspense>
               </GristSdkAlerts>
             </div>
           </GristBoundary>

@@ -1,7 +1,14 @@
 {
-  "name": "grist-widget-template",
+  "name": "world-map",
   "private": true,
   "version": "0.2.21",
+  "grist": {
+    "name": "World Map",
+    "widgetId": "@arthurblanchon/world-map",
+    "published": true,
+    "accessLevel": "full",
+    "renderAfterReady": true
+  },
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -18,6 +25,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^1.8.0",
+    "maplibre-gl": "^5.24.0",
     "radix-ui": "^1.4.3",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
@@ -29,6 +37,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.39.4",
+    "@types/geojson": "^7946.0.16",
     "@types/node": "^24.12.0",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
