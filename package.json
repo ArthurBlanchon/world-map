@@ -1,7 +1,7 @@
 {
   "name": "world-map",
   "private": true,
-  "version": "0.2.21",
+  "version": "0.0.2",
   "grist": {
     "name": "World Map",
     "widgetId": "@arthurblanchon/world-map",
