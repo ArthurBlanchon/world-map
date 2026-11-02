@@ -26,7 +26,7 @@ import {
 
 import { GristSdkAlerts } from "@/components/grist-sdk-alerts"
 import App from "./App"
-import { GRIST_OPTIONS } from "./grist-options"
+import { GRIST_OPTIONS } from "@/grist-options"
 
 // jsdom has no WebGL, which MapLibre needs before it draws anything. In this
 // test every MapLibre object is an inert stand-in: any method is a no-op that

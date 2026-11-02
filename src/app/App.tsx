@@ -211,3 +211,5 @@ function StatusPanel({ title, body }: { title: string; body?: string }) {
 }
 
 export default App
+
+export { GRIST_OPTIONS } from "@/grist-options"
