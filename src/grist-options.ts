@@ -13,3 +13,9 @@ export const GRIST_OPTIONS: UseGristOptions = {
   ],
   suppressAlerts: ["section-not-linked"],
 }
+
+export const WIDGET_METADATA = {
+  title: "World map",
+  description:
+    "Choropleth of country counts from a table — map CountryISO (2 or 3 letters) and Count columns.",
+} as const
