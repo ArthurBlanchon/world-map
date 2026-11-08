@@ -15,11 +15,7 @@ import {
   type GristRowRecord,
 } from "grist-widget-sdk"
 
-export const WIDGET_METADATA = {
-  title: "World map",
-  description:
-    "Choropleth of country counts from a table — map CountryISO (2 or 3 letters) and Count columns.",
-} as const
+import { WIDGET_METADATA } from "@/grist-options"
 
 function asNumber(value: unknown): number {
   if (typeof value === "number") return Number.isFinite(value) ? value : 0
@@ -41,7 +37,7 @@ function buildCounts(
   return mergeCountryCounts(parsed)
 }
 
-export function App() {
+export function WorldMap() {
   useWidgetMetadata(WIDGET_METADATA)
   const w = useGrist()
   const { fetchSelectedTable } = w
@@ -210,4 +206,4 @@ function StatusPanel({ title, body }: { title: string; body?: string }) {
   )
 }
 
-export default App
+export default WorldMap
