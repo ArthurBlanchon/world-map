@@ -1,0 +1,37 @@
+{
+  "name": "World map",
+  "widgetId": "@arthurblanchon/world-map",
+  "url": "https://arthurblanchon.github.io/world-map/v0.2.0/",
+  "published": true,
+  "accessLevel": "read table",
+  "columns": [
+    {
+      "name": "CountryISO",
+      "type": "Text",
+      "description": "ISO 3166-1 alpha-2 (US, FR) or alpha-3 (USA, FRA)"
+    },
+    {
+      "name": "Count",
+      "type": "Numeric"
+    }
+  ],
+  "renderAfterReady": false,
+  "description": "Choropleth of country counts from a table — map CountryISO (2 or 3 letters) and Count columns.",
+  "authors": [
+    {
+      "name": "ArthurBlanchon",
+      "url": "https://github.com/ArthurBlanchon"
+    }
+  ],
+  "lastUpdatedAt": "2026-11-12T16:40:48.521Z",
+  "gristWidgetSdk": {
+    "schema": 1,
+    "channel": "release",
+    "version": "0.2.0",
+    "repository": "https://github.com/ArthurBlanchon/world-map",
+    "license": "MIT",
+    "sdk": "0.4.0",
+    "createGristWidget": "0.4.0",
+    "demo": "https://arthurblanchon.github.io/world-map/v0.2.0/demo/"
+  }
+}
