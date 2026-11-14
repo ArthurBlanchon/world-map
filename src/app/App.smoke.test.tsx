@@ -36,18 +36,13 @@ vi.mock("maplibre-gl", () => {
     )
     return self
   }
-  const library = new Proxy(
-    {},
-    {
-      get: (_target, key) =>
-        key === "then"
-          ? undefined
-          : function () {
-              return inert()
-            },
-    }
-  )
-  return { default: library }
+  // MapLibre 6 has named exports only (`import * as MapLibreGL`): each class the
+  // map uses is a constructor returning an inert stand-in.
+  const stand = function () {
+    return inert()
+  }
+  const names = ["Map", "Popup", "Marker", "NavigationControl", "GeolocateControl", "FullscreenControl", "AttributionControl", "ScaleControl", "LngLat", "LngLatBounds"]
+  return Object.fromEntries(names.map((name) => [name, stand]))
 })
 
 it("renders inside Grist with every declared column mapped", () =>
