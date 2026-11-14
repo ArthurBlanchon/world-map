@@ -42,7 +42,7 @@ vi.mock("maplibre-gl", () => {
     return inert()
   }
   const names = ["Map", "Popup", "Marker", "NavigationControl", "GeolocateControl", "FullscreenControl", "AttributionControl", "ScaleControl", "LngLat", "LngLatBounds"]
-  return Object.fromEntries(names.map((name) => [name, stand]))
+  return { ...Object.fromEntries(names.map((name) => [name, stand])), setWorkerUrl: () => undefined }
 })
 
 it("renders inside Grist with every declared column mapped", () =>
