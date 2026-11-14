@@ -23,11 +23,11 @@
       "url": "https://github.com/ArthurBlanchon"
     }
   ],
-  "lastUpdatedAt": "2026-11-13T20:16:51.704Z",
+  "lastUpdatedAt": "2026-11-14T23:34:52.559Z",
   "gristWidgetSdk": {
     "schema": 1,
     "channel": "dev",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "repository": "https://github.com/ArthurBlanchon/world-map",
     "license": "MIT",
     "sdk": "0.5.0",
