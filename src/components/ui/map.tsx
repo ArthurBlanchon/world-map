@@ -1,7 +1,11 @@
 "use client";
 
-import MapLibreGL, { type PopupOptions, type MarkerOptions } from "maplibre-gl";
+import * as MapLibreGL from "maplibre-gl";
+import type { PopupOptions, MarkerOptions } from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
+// MapLibre 6 looks for its worker next to its own module, which a bundle doesn't keep:
+// Vite emits the worker as an asset, and MapLibre is told where it is.
+import workerUrl from "maplibre-gl/dist/maplibre-gl-worker.mjs?url";
 import {
   createContext,
   forwardRef,
@@ -19,6 +23,8 @@ import { createPortal } from "react-dom";
 import { X, Minus, Plus, Locate, Maximize, Loader2 } from "lucide-react";
 
 import { cn } from "@/lib/utils";
+
+MapLibreGL.setWorkerUrl(workerUrl);
 
 const defaultStyles = {
   dark: "https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json",

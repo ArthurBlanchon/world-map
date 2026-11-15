@@ -40,7 +40,7 @@ function buildCounts(
 export function WorldMap() {
   useWidgetMetadata(WIDGET_METADATA)
   const w = useGrist()
-  const { fetchSelectedTable } = w
+  const { fetchRows } = w
 
   const countryColId = w.resolveMappedColumnId("CountryISO")
   const countColId = w.resolveMappedColumnId("Count")
@@ -63,7 +63,7 @@ export function WorldMap() {
   ])
 
   const shouldFetchFallback =
-    w.isReady &&
+    w.status === "ready" &&
     w.columnMappingStatus.ok &&
     Boolean(countryColId && countColId) &&
     w.records == null
@@ -80,7 +80,7 @@ export function WorldMap() {
       setLoadError(null)
 
       try {
-        const columnar = await fetchSelectedTable()
+        const columnar = await fetchRows({ columnar: true })
         if (cancelled) return
         const rows = tableDataToRows(columnar)
         setFallbackCounts(buildCounts(rows, countryColId, countColId))
@@ -99,7 +99,7 @@ export function WorldMap() {
     }
   }, [
     shouldFetchFallback,
-    fetchSelectedTable,
+    fetchRows,
     countryColId,
     countColId,
   ])
@@ -116,7 +116,7 @@ export function WorldMap() {
     [countsFromRecords, activeFallbackCounts],
   )
   const loading =
-    w.isReady &&
+    w.status === "ready" &&
     w.columnMappingStatus.ok &&
     countsFromRecords == null &&
     activeFallbackCounts == null &&
