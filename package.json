@@ -1,7 +1,7 @@
 {
   "name": "world-map",
   "private": true,
-  "version": "0.2.0",
+  "version": "0.2.1",
   "grist": {
     "name": "World Map",
     "widgetId": "@arthurblanchon/world-map",
@@ -27,7 +27,7 @@
     "clsx": "^2.1.1",
     "grist-widget-sdk": "^0.5.0",
     "lucide-react": "^1.66.0",
-    "maplibre-gl": "^5.24.0",
+    "maplibre-gl": "^6.17.0",
     "radix-ui": "^1.8.1",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
